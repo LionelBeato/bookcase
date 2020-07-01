@@ -1,5 +1,6 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import {graphql, buildSchema}  from 'https://cdn.pika.dev/graphql@v15.2.0';
+import root from './resolver.ts'
 
 const schema = buildSchema(`
     type Query {
@@ -10,7 +11,7 @@ const schema = buildSchema(`
 const resolver = { hello: () => 'Hello World!' };
 
 const executeSchema = async (query:any) => {
-    let result = await graphql(schema, query, resolver);
+    let result = await graphql(schema, query, root);
     return result; 
 }
 
@@ -22,14 +23,16 @@ const executeSchema = async (query:any) => {
 
 const router = new Router(); 
 
-// TODO(@LionelBeato): figure out why this function throws and error and fix it! 
+// success! got this post method to work! 
+// the initial problem was related to me simply passing in `body.value`
+// instead of `body.value.query`
 router.post("/graphql", async ({request, response}) => {
     if(request.hasBody) {
         console.log(await request.body());
         const body = await request.body();
-        const result = await executeSchema(body.value);
-        response.body = await executeSchema(body.value); 
-        console.log(response.body);
+        const result = await executeSchema(body.value.query);
+        response.body = await executeSchema(body.value.query); 
+        console.log(await executeSchema(body.value.query))
     }
 })
 
