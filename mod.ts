@@ -7,6 +7,7 @@ import root from './resolver.ts'
 
 const resolver = { hello: () => 'Hello World!' };
 
+
 const executeSchema = async (query:any) => {
     let result = await graphql(schema, query, root);
     return result; 

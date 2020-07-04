@@ -24,6 +24,9 @@ const root = {
         return found; 
     },
     booksByAuthor: (author:Author) => {
+        // is there a neater way to do this?
+        // how do we ensure the parameter names are treated as one object? 
+        // maybe use an &&? 
         let map = books
                       .filter(element => element.author.firstName === author.firstName 
                                 || element.author.lastName === author.lastName);
@@ -32,7 +35,10 @@ const root = {
     },
     allBooks: () => {
         return books; 
-    }, 
+    },
+    allAuthors: () => {
+        return authors; 
+    }
 
 };
 

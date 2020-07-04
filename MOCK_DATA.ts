@@ -12,6 +12,10 @@ export interface Author {
     id:Number;
 }
 
+// TODO(): find out if there's a way to make these objects
+//         of type "Author" and "Book", 
+//         I may need to make these interfaces classes instead
+// TODO(): add more author objects
 export let authors = [
     {
         id: 1,
@@ -25,6 +29,7 @@ export let authors = [
     }
 ]
 
+// TODO(): add more book objects
 export let books = [
     {
         id: 1,
