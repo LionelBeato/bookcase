@@ -42,4 +42,13 @@ export let books = [
        year: 2000, 
 
    },
+   {
+       id: 3,
+       title: `Harry Potter and The Goblet of Fire`,
+       author: authors[1],
+       publisher: `otherPublisher`,
+       year: 2000, 
+
+   },
+   
 ]
