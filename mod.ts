@@ -1,12 +1,9 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-import {graphql, buildSchema}  from 'https://cdn.pika.dev/graphql@v15.2.0';
+import { graphql, buildSchema }  from 'https://cdn.pika.dev/graphql@v15.2.0';
+import schema from './schema.ts'; 
 import root from './resolver.ts'
 
-const schema = buildSchema(`
-    type Query {
-        hello: String
-    }
-`);
+
 
 const resolver = { hello: () => 'Hello World!' };
 
@@ -32,7 +29,7 @@ router.post("/graphql", async ({request, response}) => {
         const body = await request.body();
         const result = await executeSchema(body.value.query);
         response.body = await executeSchema(body.value.query); 
-        console.log(await executeSchema(body.value.query))
+        console.log(await executeSchema(body.value.query));
     }
 })
 
