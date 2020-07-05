@@ -6,8 +6,13 @@
 
 
 const root = {
+    // arrow function
+    // anonymous function
     hello: () => {
         return 'Hello world!';
+    },
+    nadia: () => {
+        return 'Hello Nadia'; 
     },
     bookById: (book:Book) => {
         let found = books

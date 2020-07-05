@@ -1,8 +1,11 @@
 import { buildSchema, } from "https://cdn.pika.dev/graphql/^15.0.0";
 
+// TODO(): Add mutation
+// TODO(): 
 const schema = buildSchema(`
     type Query {
         hello: String
+        nadia: String
         allBooks: [Book]
         bookById(title: String): Book
         bookByTitle(title: String): Book 
@@ -27,5 +30,6 @@ const schema = buildSchema(`
         lastName: String
         id: Int
     }
-`);
+`, null);
+
 export default schema; 
