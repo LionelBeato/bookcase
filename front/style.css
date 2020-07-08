@@ -105,7 +105,7 @@ article {
 
 /* main site area */
 main {
-  padding: 2rem;
+  /* padding: 2rem; */
   grid-column: 2/5;
   /* font-family: 'Comfortaa', cursive; */
   font-family: var(--font-family-sans-serif);
@@ -130,7 +130,7 @@ main section img {
 /* main on smaller screens */
 @media only screen and (max-width: 500px) {
   main {
-    padding: 2rem;
+    /* padding: 2rem; */
     /* grid-column: span 5; */
   }
 }
@@ -158,6 +158,27 @@ body {
   grid-template-rows: 1fr auto 1fr;
 }
 
+.bookshelf {
+    /* position: relative; */
+    justify-content: stretch;    
+    /* this should be dynamic to the enclosing element */
+    /* TODO(): find other unit */
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.shelf {
+    height: 10rem;
+    border-bottom: 1rem solid black;
+    grid-row: span 1;
+}
+
+.last-shelf {
+    height: 10rem;
+    /* border-bottom: 1rem solid black; */
+    grid-row: span 1;
+}
 
 /* footer code */
 
