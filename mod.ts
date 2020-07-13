@@ -25,11 +25,12 @@ const executeSchema = async (query:any) => {
 
 
 const router = new Router(); 
+const url:string = `/graphql`;
 
 // success! got this post method to work! 
 // the initial problem was related to me simply passing in `body.value`
 // instead of `body.value.query`
-router.post(`/graphql`, async (ctx) => {
+router.post(url, async (ctx) => {
     if(ctx.request.hasBody) {
         console.log(await ctx.request.body());
         const body = await ctx.request.body();
