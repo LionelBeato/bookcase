@@ -5,9 +5,10 @@ import root from './resolver.ts'
 import { parse } from 'https://deno.land/std/flags/mod.ts';
 
 
+
 const { args } = Deno;
 const DEFAULT_PORT = 8000;
-const argPort = parse(Deno.args).port;
+const argPort = parse(args).port;
 
 const resolver = { hello: () => 'Hello World!' };
 
@@ -28,12 +29,12 @@ const router = new Router();
 // success! got this post method to work! 
 // the initial problem was related to me simply passing in `body.value`
 // instead of `body.value.query`
-router.post("/graphql", async ({request, response}) => {
-    if(request.hasBody) {
-        console.log(await request.body());
-        const body = await request.body();
+router.post("/graphql", async (ctx) => {
+    if(ctx.request.hasBody) {
+        console.log(await ctx.request.body());
+        const body = await ctx.request.body();
         const result = await executeSchema(body.value.query);
-        response.body = await executeSchema(body.value.query); 
+        ctx.response.body = await executeSchema(body.value.query); 
         console.log(await executeSchema(body.value.query));
     }
 })
