@@ -3,6 +3,7 @@ import { graphql, buildSchema }  from 'https://cdn.pika.dev/graphql@v15.2.0';
 import schema from './schema.ts'; 
 import root from './resolver.ts'
 import { parse } from 'https://deno.land/std/flags/mod.ts';
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 
 
@@ -45,6 +46,7 @@ const app = new Application();
 // app.use((ctx) => {
 //     ctx.response.body = "hello world!";
 // });
+app.use(oakCors());
 app.use(router.routes());
 app.use(router.allowedMethods());
 
