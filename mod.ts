@@ -2,8 +2,13 @@ import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { graphql, buildSchema }  from 'https://cdn.pika.dev/graphql@v15.2.0';
 import schema from './schema.ts'; 
 import root from './resolver.ts'
+import { parse } from 'https://deno.land/std/flags/mod.ts';
 
 
+
+const { args } = Deno;
+const DEFAULT_PORT = 8000;
+const argPort = parse(args).port;
 
 const resolver = { hello: () => 'Hello World!' };
 
@@ -44,4 +49,4 @@ app.use(router.allowedMethods());
 
 console.log(`starting app!`);
 // console.log(executeSchema('{hello}'))
-await app.listen({port: 5000});
+await app.listen({ port: argPort ? Number(argPort) : DEFAULT_PORT });
