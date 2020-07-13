@@ -29,7 +29,7 @@ const router = new Router();
 // success! got this post method to work! 
 // the initial problem was related to me simply passing in `body.value`
 // instead of `body.value.query`
-router.post("/graphql", async (ctx) => {
+router.post(`/graphql`, async (ctx) => {
     if(ctx.request.hasBody) {
         console.log(await ctx.request.body());
         const body = await ctx.request.body();
