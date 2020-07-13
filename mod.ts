@@ -5,10 +5,9 @@ import root from './resolver.ts'
 import { parse } from 'https://deno.land/std/flags/mod.ts';
 
 
-
 const { args } = Deno;
 const DEFAULT_PORT = 8000;
-const argPort = parse(args).port;
+const argPort = parse(Deno.args).port;
 
 const resolver = { hello: () => 'Hello World!' };
 
