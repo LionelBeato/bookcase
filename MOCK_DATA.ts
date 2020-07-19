@@ -4,6 +4,8 @@ export interface Book {
     publisher:String;
     year:Number;
     id:Number;
+    slug:String; 
+    blurb:String; 
 }
 
 export interface Author {
@@ -37,6 +39,9 @@ export let books = [
        author: authors[0],
        publisher: `bookPublisher`,
        year: 2000, 
+       slug: `SLGHTR-5`,
+       blurb:
+       `Selected by the Modern Library as one of the 100 best novels of all time, Slaughterhouse-Five, an American classic, is one of the world's great antiwar books. Centering on the infamous firebombing of Dresden, Billy Pilgrim's odyssey through time reflects the mythic journey of our own fractured lives as we search for meaning in what we fear most.`
 
    },
    {
