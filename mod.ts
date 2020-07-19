@@ -1,4 +1,4 @@
-import { Application, Router, Body } from "https://deno.land/x/oak@v6.0.1/mod.ts";
+import { Application, Router, Body } from "https://deno.land/x/oak@v5.4.0/mod.ts";
 import { graphql, buildSchema }  from 'https://cdn.pika.dev/graphql@v15.2.0';
 import schema from './schema.ts'; 
 import root from './resolver.ts'
