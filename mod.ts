@@ -1,4 +1,4 @@
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router, Body } from "https://deno.land/x/oak/mod.ts";
 import { graphql, buildSchema }  from 'https://cdn.pika.dev/graphql@v15.2.0';
 import schema from './schema.ts'; 
 import root from './resolver.ts'
@@ -14,8 +14,8 @@ const argPort = parse(args).port;
 const resolver = { hello: () => 'Hello World!' };
 
 
-const executeSchema = async (query:any) => {
-    let result = await graphql(schema, query, root);
+const executeSchema = (query:any) => {
+    let result = graphql(schema, query, root);
     return result; 
 }
 
@@ -28,16 +28,13 @@ const executeSchema = async (query:any) => {
 const router = new Router(); 
 const url:string = `/graphql`;
 
-// success! got this post method to work! 
-// the initial problem was related to me simply passing in `body.value`
-// instead of `body.value.query`
+// these awaits and async are mandatory! 
+// otherwise, the promises will not resolve! 
 router.post(url, async (ctx) => {
     if(ctx.request.hasBody) {
-        console.log(await ctx.request.body());
-        const body = await ctx.request.body();
-        const result = await executeSchema(body.value.query);
-        ctx.response.body = await executeSchema(body.value.query); 
-        console.log(await executeSchema(body.value.query));
+        const body = await ctx.request.body().value;
+        const result = await executeSchema(body.query);
+        ctx.response.body = result; 
     }
 })
 
@@ -51,5 +48,5 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 console.log(`starting app!`);
-// console.log(executeSchema('{hello}'))
+console.log(executeSchema('{hello}'))
 await app.listen({ port: argPort ? Number(argPort) : DEFAULT_PORT });
