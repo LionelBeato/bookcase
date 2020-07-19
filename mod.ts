@@ -36,7 +36,7 @@ router.post(url, async (ctx) => {
         console.log(await ctx.request.body());
         const body = await ctx.request.body();
         const result = await executeSchema(body.value.query);
-        ctx.response.body = await executeSchema(body.value.query); 
+        // ctx.response.body = await executeSchema(body.value.query); 
         console.log(await executeSchema(body.value.query));
     }
 })
