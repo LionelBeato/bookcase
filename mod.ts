@@ -29,7 +29,7 @@ const router = new Router();
 const url:string = `/graphql`;
 
 // these awaits and async are mandatory! 
-// otherwise, the promises will not resolve! 
+// otherwise, the promises will not resolve!!! 
 router.post(url, async (ctx) => {
     if(ctx.request.hasBody) {
         const body = await ctx.request.body().value;
