@@ -4,6 +4,8 @@ export interface Book {
     publisher:String;
     year:Number;
     id:Number;
+    blurb:String;
+    slug:String; 
 }
 
 export interface Author {
@@ -36,7 +38,9 @@ export let books = [
        title: `Slaughterhouse-Five`,
        author: authors[0],
        publisher: `bookPublisher`,
-       year: 2000, 
+       year: 2000,
+       slug:`SLGTR-5`,
+       blurb: `is book is good`,
 
    },
    {
@@ -45,6 +49,8 @@ export let books = [
        author: authors[1],
        publisher: `otherPublisher`,
        year: 2000, 
+       slug:`SLGTR-5`,
+       blurb: `is book is good`,
 
    },
    {
@@ -53,6 +59,8 @@ export let books = [
        author: authors[1],
        publisher: `otherPublisher`,
        year: 2000, 
+       slug:`SLGTR-5`,
+       blurb: `is book is good`,
 
    },
    

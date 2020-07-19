@@ -1,15 +1,21 @@
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router, Body } from "https://deno.land/x/oak/mod.ts";
 import { graphql, buildSchema }  from 'https://cdn.pika.dev/graphql@v15.2.0';
 import schema from './schema.ts'; 
 import root from './resolver.ts'
+import { parse } from 'https://deno.land/std/flags/mod.ts';
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 
+
+const { args } = Deno;
+const DEFAULT_PORT = 8000;
+const argPort = parse(args).port;
 
 const resolver = { hello: () => 'Hello World!' };
 
 
-const executeSchema = async (query:any) => {
-    let result = await graphql(schema, query, root);
+const executeSchema = (query:any) => {
+    let result = graphql(schema, query, root);
     return result; 
 }
 
@@ -20,17 +26,15 @@ const executeSchema = async (query:any) => {
 
 
 const router = new Router(); 
+const url:string = `/graphql`;
 
-// success! got this post method to work! 
-// the initial problem was related to me simply passing in `body.value`
-// instead of `body.value.query`
-router.post("/graphql", async ({request, response}) => {
-    if(request.hasBody) {
-        console.log(await request.body());
-        const body = await request.body();
-        const result = await executeSchema(body.value.query);
-        response.body = await executeSchema(body.value.query); 
-        console.log(await executeSchema(body.value.query));
+// these awaits and async are mandatory! 
+// otherwise, the promises will not resolve! 
+router.post(url, async (ctx) => {
+    if(ctx.request.hasBody) {
+        const body = await ctx.request.body().value;
+        const result = await executeSchema(body.query);
+        ctx.response.body = result; 
     }
 })
 
@@ -39,9 +43,10 @@ const app = new Application();
 // app.use((ctx) => {
 //     ctx.response.body = "hello world!";
 // });
+app.use(oakCors());
 app.use(router.routes());
 app.use(router.allowedMethods());
 
 console.log(`starting app!`);
-// console.log(executeSchema('{hello}'))
-await app.listen({port: 5000});
+console.log(executeSchema('{hello}'))
+await app.listen({ port: argPort ? Number(argPort) : DEFAULT_PORT });

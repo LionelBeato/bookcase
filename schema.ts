@@ -1,4 +1,4 @@
-import { buildSchema, } from "https://cdn.pika.dev/graphql/^15.0.0";
+import { buildSchema, } from "https://cdn.pika.dev/graphql/^15.2.0";
 
 // TODO(): Add mutation
 // TODO(): 
@@ -17,6 +17,8 @@ const schema = buildSchema(`
         publisher: String
         year: Int
         id: Int
+        blurb: String
+        slug: String
     }
 
     input AuthorInput{

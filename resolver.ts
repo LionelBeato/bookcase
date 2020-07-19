@@ -35,6 +35,9 @@ const root = {
         let map = books
                       .filter(element => element.author.firstName === author.firstName 
                                 || element.author.lastName === author.lastName);
+        // let map = books
+        // .filter(element => element.author === author);
+                               
         console.log(map);
         return map; 
     },
