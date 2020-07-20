@@ -19,6 +19,7 @@ const schema = buildSchema(`
         id: Int
         blurb: String
         slug: String
+        color: String
     }
 
     input AuthorInput{

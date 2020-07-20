@@ -6,6 +6,7 @@ export interface Book {
     id:Number;
     blurb:String;
     slug:String; 
+    color:String;
 }
 
 export interface Author {
@@ -41,6 +42,7 @@ export let books = [
        year: 2000,
        slug:`SLGTR-5`,
        blurb: `is book is good`,
+       color: `orange`,
 
    },
    {
@@ -51,7 +53,7 @@ export let books = [
        year: 2000, 
        slug:`SLGTR-5`,
        blurb: `is book is good`,
-
+       color: `red`,
    },
    {
        id: 3,
@@ -61,7 +63,7 @@ export let books = [
        year: 2000, 
        slug:`SLGTR-5`,
        blurb: `is book is good`,
-
+       color: `red`,       
    },
    
 ]
