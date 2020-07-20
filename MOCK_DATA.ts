@@ -65,7 +65,7 @@ export let books = [
     color: `red`,
   },
   {
-    id: 3,
+    id: 4,
     title: `Frankenstein`,
     author: authors[1],
     publisher: `otherPublisher`,
@@ -75,7 +75,7 @@ export let books = [
     color: `green`,
   },
   {
-    id: 4,
+    id: 5,
     title: `Of Mice and Men`,
     author: authors[1],
     publisher: `otherPublisher`,
@@ -85,7 +85,7 @@ export let books = [
     color: `gold`,
   },
   {
-    id: 5,
+    id: 6,
     title: `Lord of The FLies`,
     author: authors[1],
     publisher: `otherPublisher`,
@@ -95,7 +95,7 @@ export let books = [
     color: `blue`,
   },
   {
-    id: 6,
+    id: 7,
     title: `The Great Gatsby`,
     author: authors[1],
     publisher: `otherPublisher`,
@@ -105,7 +105,7 @@ export let books = [
     color: `purple`,
   },
   {
-    id: 7,
+    id: 8,
     title: `Brave New World`,
     author: authors[1],
     publisher: `otherPublisher`,
@@ -115,7 +115,7 @@ export let books = [
     color: `grey`,
   },
   {
-    id: 8,
+    id: 9,
     title: `Charlie and The Chocolate Factory`,
     author: authors[1],
     publisher: `otherPublisher`,
@@ -125,7 +125,7 @@ export let books = [
     color: `red`,
   },
   {
-    id: 9,
+    id: 10,
     title: `Harry Potter and The Goblet of Fire`,
     author: authors[1],
     publisher: `otherPublisher`,
@@ -135,7 +135,7 @@ export let books = [
     color: `red`,
   },
   {
-    id: 10,
+    id: 11,
     title: `Harry Potter and The Goblet of Fire`,
     author: authors[1],
     publisher: `otherPublisher`,
