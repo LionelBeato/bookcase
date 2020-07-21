@@ -23,6 +23,13 @@ const root = {
     },
     bookByTitle: (book:Book) => {
         let found = books
+                        .filter(({title}) => title === book.title);
+        console.log(found);
+        console.log(`searching with: ${book.title}`);
+        return found; 
+    },
+    booksByTitle: (book:Book) => {
+        let found = books
                         .find(({title}) => title === book.title);
         console.log(found);
         console.log(`searching with: ${book.title}`);

@@ -6,9 +6,11 @@ const schema = buildSchema(`
     type Query {
         hello: String
         nadia: String
+        searchBooks(filter: String): [Book] 
         allBooks: [Book]
         bookById(title: String): Book
         bookByTitle(title: String): Book 
+        booksByTitle(title: String): Book 
         booksByAuthor(firstName:String, lastName:String): [Book]
     }
     type Book {
