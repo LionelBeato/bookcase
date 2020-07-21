@@ -10,7 +10,7 @@ const schema = buildSchema(`
         allBooks: [Book]
         bookById(title: String): Book
         bookByTitle(title: String): Book 
-        booksByTitle(title: String): Book 
+        booksByTitle(title: String): [Book] 
         booksByAuthor(firstName:String, lastName:String): [Book]
     }
     type Book {
