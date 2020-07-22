@@ -20,13 +20,13 @@ const root = {
     return found;
   },
   bookByTitle: (book: Book) => {
-    let found = books.find(({ title }) => title === book.title);
+    let found = books.find(({ title }) => title.toLowerCase() === book.title.toLowerCase());
     console.log(found);
     console.log(`searching with: ${book.title}`);
     return found;
   },
   booksByTitle: (book: Book) => {
-    let found = books.filter((element) => element.title.includes(book.title));
+    let found = books.filter((element) => element.title.toLowerCase().includes(book.title.toLowerCase()));
     console.log(found);
     console.log(`searching with: ${book.title}`);
     return found;
