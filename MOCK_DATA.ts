@@ -1,18 +1,18 @@
 export interface Book {
-  title: String;
+  title: string;
   author: Author;
-  publisher: String;
-  year: Number;
-  id: Number;
-  blurb: String;
-  slug: String;
-  color: String;
+  publisher: string;
+  year: number;
+  id: number;
+  blurb: string;
+  slug: string;
+  color: string;
 }
 
 export interface Author {
-  firstName: String;
-  lastName: String;
-  id: Number;
+  firstName: string;
+  lastName: string;
+  id: number;
 }
 
 // TODO(): find out if there's a way to make these objects
