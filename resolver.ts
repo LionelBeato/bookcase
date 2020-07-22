@@ -23,14 +23,15 @@ const root = {
     },
     bookByTitle: (book:Book) => {
         let found = books
-                        .filter(element => element.title === book.title);
+        .find(({title}) => title === book.title);
         console.log(found);
         console.log(`searching with: ${book.title}`);
         return found; 
     },
     booksByTitle: (book:Book) => {
-        let found = books
-                        .find(({title}) => title === book.title);
+
+                        let found = books
+                        .filter(element => element.title === book.title);
         console.log(found);
         console.log(`searching with: ${book.title}`);
         return found; 
@@ -42,8 +43,7 @@ const root = {
         let map = books
                       .filter(element => element.author.firstName === author.firstName 
                                 || element.author.lastName === author.lastName);
-        // let map = books
-        // .filter(element => element.author === author);
+
                                
         console.log(map);
         return map; 
