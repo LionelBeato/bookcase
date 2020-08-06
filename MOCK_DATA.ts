@@ -27,8 +27,8 @@ export let authors = [
   },
   {
     id: 2,
-    firstName: `Joanne`,
-    lastName: `Rowling`,
+    firstName: `LOLL`,
+    lastName: `LOLL`,
   },
 ];
 
@@ -46,7 +46,7 @@ export let books = [
   },
   {
     id: 2,
-    title: `Harry Potter and The Sorcerer's Stone`,
+    title: `LOL`,
     author: authors[1],
     publisher: `otherPublisher`,
     year: 2000,
@@ -56,7 +56,7 @@ export let books = [
   },
   {
     id: 3,
-    title: `Harry Potter and The Goblet of Fire`,
+    title: `LOL`,
     author: authors[1],
     publisher: `otherPublisher`,
     year: 2000,
@@ -126,7 +126,7 @@ export let books = [
   },
   {
     id: 10,
-    title: `Harry Potter and The Goblet of Fire`,
+    title: `LOL`,
     author: authors[1],
     publisher: `otherPublisher`,
     year: 2000,
@@ -136,7 +136,7 @@ export let books = [
   },
   {
     id: 11,
-    title: `Harry Potter and The Goblet of Fire`,
+    title: `LOL`,
     author: authors[1],
     publisher: `otherPublisher`,
     year: 2000,
